@@ -2957,7 +2957,7 @@
                                syb(ip),zc_bunch(ip),&
                                gam(ip),&
                                epsy(ip),epsz(ip),sigma_cut_bunch(ip),&
-                               dg(ip),bpart,dx,dy,dz,rhob(ip),ppc_bunch(ip,:))
+                               dg(ip),bpart,dx,dy,dz,rhob(ip),ppc_bunch(ip,:), particle_charge(ip))
    if(bunch_shape(ip)==1 .and. ppc_bunch(ip,1)==-1) & !equal-weight
                           call generate_bunch_bigaussian_equal(i1,i2,&
                                sxb(ip),xc_bunch(ip),&
@@ -2965,33 +2965,33 @@
                                syb(ip),zc_bunch(ip),&
                                gam(ip),&
                               epsy(ip),epsz(ip),sigma_cut_bunch(ip),&
-                              dg(ip),bpart,dx,dy,dz,rhob(ip))
+                              dg(ip),bpart,dx,dy,dz,rhob(ip), particle_charge(ip))
    if(bunch_shape(ip)==2 .and. ppc_bunch(ip,1)>0) & !weighted-option
                           call generate_bunch_triangularZ_uniformR_weighted(i1,i2,&
                                xc_bunch(ip),yc_bunch(ip),zc_bunch(ip),&
                                sxb(ip),syb(ip),syb(ip),gam(ip),&
                                epsy(ip),epsz(ip),sigma_cut_bunch(ip),dg(ip),&
                                bpart,Charge_right(ip),Charge_left(ip),dx,dy,dz, &
-                               ppc_bunch(ip,1:3))
+                               ppc_bunch(ip,1:3), particle_charge(ip))
    if(bunch_shape(ip)==2 .and. ppc_bunch(ip,1)==-1) & !equal-weight
                            call generate_bunch_triangularZ_uniformR_equal(i1,i2,&
                                 xc_bunch(ip),yc_bunch(ip),zc_bunch(ip),&
                                 sxb(ip),syb(ip),syb(ip),gam(ip),&
                                 epsy(ip),epsz(ip),sigma_cut_bunch(ip),dg(ip),&
-                                bpart,Charge_right(ip),Charge_left(ip))
+                                bpart,Charge_right(ip),Charge_left(ip), particle_charge(ip))
    if(bunch_shape(ip)==3 .and. ppc_bunch(ip,1)>0) & !weighted-option
                            call generate_bunch_triangularZ_normalR_weighted(i1,i2,&
                                 xc_bunch(ip),yc_bunch(ip),zc_bunch(ip),&
                                 sxb(ip),syb(ip),syb(ip),&
                                 gam(ip),epsy(ip),epsz(ip),sigma_cut_bunch(ip),dg(ip),&
                                 bpart,Charge_right(ip),Charge_left(ip),dx,dy,dz, &
-                                ppc_bunch(ip,1:3))
+                                ppc_bunch(ip,1:3), particle_charge(ip))
    if(bunch_shape(ip)==3 .and. ppc_bunch(ip,1)==-1) & !equal-weight
                            call generate_bunch_triangularZ_normalR_equal(i1,i2,&
                                 xc_bunch(ip),yc_bunch(ip),zc_bunch(ip),&
                                 sxb(ip),syb(ip),syb(ip),&
                                 gam(ip),epsy(ip),epsz(ip),sigma_cut_bunch(ip),dg(ip),&
-                                bpart,Charge_right(ip),Charge_left(ip))
+                                bpart,Charge_right(ip),Charge_left(ip), particle_charge(ip))
 
     !--- Twiss Rotation ---!
     if(L_TWISS(ip)) call bunch_twissrotation(i1,i2,bpart, &
